@@ -5,6 +5,7 @@ let signIn = document.querySelector('.sign-in')
 let stripe = document.querySelector('.stripe')
 let divIn = document.querySelector('.div-in')
 let divUp = document.querySelector('.div-up')
+let subBtn = document.querySelector('#submit-btn')
 
 
 signUp.addEventListener('click', () =>{
@@ -22,28 +23,50 @@ signIn.addEventListener('click',() =>{
     divUp.classList.toggle('stripe')
 })
 
-window.addEventListener('load', function () {
-    function sendData () {
-        const XHR = new XMLHttpRequest();
+// window.addEventListener('load', function () {
+//     function sendData () {
+//         const XHR = new XMLHttpRequest();
+//
+//         const FD = new FormData ( form );
+//
+//         XHR.addEventListener('load', function (event) {
+//             alert(event.target.responseText);
+//         });
+//
+//         XHR.addEventListener('error', function (event) {
+//             alert("OOPS! SOMETHING WENT WRONG!");
+//         });
+//
+//         XHR.open('POST', 'http://localhost:8081/authorization');
+//
+//         XHR.send(FD);
+//     }
+//
+//     const form = document.querySelector('form')
+//     form.addEventListener('submit', function (event) {
+//         event.preventDefault();
+//         sendData();
+//     });
+// })
 
-        const FD = new FormData ( form );
+subBtn.addEventListener('submit', function() {
+    let XHR = new XMLHttpRequest();
+    let url = 'http://localhost:8081/authorization';
+    XHR.open('POST', url, true);
+    XHR.setRequestHeader("Content-Type", "application/json");
 
-        XHR.addEventListener('load', function (event) {
-            alert(event.target.responseText);
-        });
-
-        XHR.addEventListener('error', function (event) {
-            alert("OOPS! SOMETHING WENT WRONG!");
-        });
-
-        XHR.open('POST', 'http://localhost:8081/authorization');
-
-        XHR.send(FD);
+    XHR.onreadystatechange = function () {
+        if( XHR.readyState == 4 && XHR.status === 200){
+            alert(XHR.responseText)
+        }
     }
 
-    const form = document.querySelector('form')
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        sendData();
-    });
+    let log = document.querySelector('#log')
+    let pas = document.querySelector('#pas')
+    let data = JSON.stringify({
+        "login":  log.value,
+        "password": pas.value,
+    })
+    console.log(data)
+    XHR.send(data);
 })
