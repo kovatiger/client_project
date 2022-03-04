@@ -30,16 +30,16 @@
             </button>
         </div>
         <!-- form -->
-        <form class="form" method="post">
+        <form class="form"  method="post">
             <div class="sign-in-form">
                 <div class="login">
                     <label>Login</label>
-                    <div><input type="text" placeholder="Enter your login" /></div>
+                    <div><input id="log" type="text" placeholder="Enter your login" /></div>
                 </div>
                 <div class="password">
                     <label>Password</label>
                     <div>
-                        <input type="password" placeholder="Enter your password" />
+                        <input id="pas" type="password" placeholder="Enter your password" />
                     </div>
                 </div>
                 <div><button class="sign-btn btn">Sign in</button></div>
