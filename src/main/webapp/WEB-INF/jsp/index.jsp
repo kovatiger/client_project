@@ -74,11 +74,11 @@
                     </div>
                 </div>
 
-                <div><button class="sign-btn btn">Sign in</button></div>
+                <div><button type="submit" id="submit-btn" class="sign-btn btn">Sign in</button></div>
             </div>
         </form>
     </div>
 </div>
-<script src="./script.js"></script>
+<script src="../../script.js"></script>
 </body>
 </html>
