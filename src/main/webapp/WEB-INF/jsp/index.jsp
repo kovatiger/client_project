@@ -1,80 +1,91 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" type="text/css" href="../../CSS/style.css" />
-        <link rel="stylesheet" type="text/css" href="../../CSS/nullStyle.css" />
-        <title>Document</title>
-    </head>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="../../CSS/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../CSS/nullStyle.css"/>
+    <title>Document</title>
+</head>
 <body>
 <div class="window">
     <div class="greeting">
-        <h1>Appname</h1>
-        <img class="bus-icon" src="./pics/bus.png" />
+        <h1>KovaBook</h1>
+        <img class="bus-icon" src="./pics/bus.png"/>
         <div class="preview-text">
-            <h2>Welcome!</h2>
-            <p>Book a transport ticket from one city to another.</p>
+            <h2>Добро пожаловать!</h2>
+            <p>Бронируйте билеты из одного города в другой.</p>
         </div>
     </div>
     <div class="user">
         <div class="switch">
             <button class="sign-in btn">
-                SIGN IN
+                Войти
                 <div class="div-in stripe"></div>
             </button>
             <button class="sign-up btn">
-                SIGN UP
+                Зарегистрироваться
                 <div class="div-up"></div>
             </button>
         </div>
         <!-- form -->
-        <form class="form"  method="post">
+        <form class="form" method="post">
             <div class="sign-in-form">
                 <div class="login">
-                    <label>Login</label>
-                    <div><input id="log" type="text" placeholder="Enter your login" /></div>
+                    <label>Логин</label>
+                    <div><input id="log" type="text" placeholder="Введите логин"/></div>
+                    <div class="small-p">Может содержать не менее 4 и не более 20 букв латиницы, цифры.</div>
                 </div>
                 <div class="password">
-                    <label>Password</label>
+                    <label>Пароль</label>
                     <div>
-                        <input id="pas" type="password" placeholder="Enter your password" />
+                        <input id="pas" type="password" placeholder="Введите пароль"/>
+                        <div class="small-p">Должен содержать не менее 6 символов: латинские буквы(прописную, заглавную)
+                            и цифру.
+                        </div>
                     </div>
                 </div>
-                <div><button type="submit" id="submit-btn" class="sign-btn btn">Sign in</button></div>
-                <div class="forgot"><a href="#">forgot Password?</a></div>
-
+                <div>
+                    <button type="submit" id="submit-btn" class="sign-btn btn">Войти</button>
+                </div>
             </div>
 
             <!-- signup -->
             <div class="sign-up-form">
                 <div class="login">
-                    <label>Login</label>
-                    <div><input id="log2" type="text" placeholder="Enter your login" /></div>
+                    <label>Логин</label>
+                    <div><input id="logUp" type="text" placeholder="Введите логин"/></div>
+                    <div class="small-p">Может содержать не менее 4 и не более 20 букв латиницы, цифры.</div>
                 </div>
 
                 <div class="phone">
-                    <label>Phone number</label>
+                    <label>Телефон</label>
                     <div>
-                        <input type="tel" id="phone" placeholder="Enter your phone number" />
+                        <input type="tel" id="tel" placeholder="Введите мобильный телефон"/>
+                    </div>
+                    <div class="small-p">Пример: +375291234567
                     </div>
                 </div>
 
                 <div class="password">
-                    <label>Password</label>
+                    <label>Пароль</label>
                     <div>
-                        <input type="password" id="pas2" placeholder="Enter your password" />
+                        <input type="password" id="pasUp" placeholder="Введите пароль"/>
+                    </div>
+                    <div class="small-p">Должен содержать не менее 6 символов: латинские буквы(прописную, заглавную)
+                        и цифру.
                     </div>
                 </div>
 
                 <div class="password">
-                    <label>Repeat password</label>
+                    <label>Повторите пароль</label>
                     <div>
-                        <input type="email" id="repPas" placeholder="Enter your password" />
+                        <input type="password" id="repPas" placeholder="Введите пароль"/>
                     </div>
                 </div>
-                <div><button type="submit" id="submit-btn2" class="sign-btn btn">Sign up</button></div>
+                <div>
+                    <button type="submit" id="submit-btn2" class="sign-btn btn">Зарегистрироваться</button>
+                </div>
 
             </div>
         </form>

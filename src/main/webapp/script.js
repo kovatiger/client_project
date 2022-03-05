@@ -5,129 +5,177 @@ let signIn = document.querySelector('.sign-in')
 let stripe = document.querySelector('.stripe')
 let divIn = document.querySelector('.div-in')
 let divUp = document.querySelector('.div-up')
-
-let subBtn = document.querySelector('#submit-btn')
-let subBtn2 = document.querySelector('#submit-btn2')
 let log = document.querySelector('#log')
 let pas = document.querySelector('#pas')
-let log2 = document.querySelector('#log2')
-let pas2 = document.querySelector('#pas2')
+let logUp = document.querySelector('#logUp')
+let pasUp = document.querySelector('#pasUp')
 let tel = document.querySelector('#tel')
+let repPas = document.querySelector('#repPas')
 
+signUp.addEventListener('click', () => {
+    signUpForm.style.display = 'block';
+    signInForm.style.display = 'none';
+    divIn.classList.remove('stripe')
+    divUp.classList.add('stripe')
+})
+signIn.addEventListener('click', () => {
+    signUpForm.style.display = 'none';
+    signInForm.style.display = 'block';
+    divIn.classList.add('stripe')
+    divUp.classList.remove('stripe')
+})
+
+const XHRUp = new XMLHttpRequest();
 
 window.addEventListener('load', function () {
-
-    signUp.addEventListener('click', () =>{
-        signUpForm.style.display = 'block';
-        signInForm.style.display = 'none';
-        divIn.classList.toggle('stripe')
-        divUp.classList.toggle('stripe')
-    })
-    signIn.addEventListener('click',() =>{
-        signUpForm.style.display = 'none';
-        signInForm.style.display = 'block';
-        divIn.classList.toggle('stripe')
-        divUp.classList.toggle('stripe')
-    })
-
-    //AUTHORIZATION
-    function sendData () {
-        //VALIDATION_AUTH
-        function validationIn() {
-            //login
-            let log1 = log.value;
-            if(/^[a-zA-Z1-9]+$/.test(log1) === false)
-            {
-                alert('В логине должны быть только латинские буквы'); return false;}
-            else if(log1.length < 4 || log1.length > 20)
-            {
-                alert('В логине должен быть от 4 до 20 символов'); return false;}
-            else if(parseInt(log1.substr(0, 1)))
-            {
-                alert('Логине должен начинаться с буквы'); return false;}
-            else{
-                alert('ok');
-                return true;
-            }
-
-            //Password
-            let pas1 = pas.value;
-            const beginWithoutDigit = /^\D.*$/
-            const withoutSpecialChars = /^[^-() /]*$/
-            const containsLetters = /^.*[a-zA-Z]+.*$/
-
-            if(beginWithoutDigit.test(pas1)){
-                alert('Пароль не должен начинаться со спецсимволов'); return false;
-            }
-            else if (withoutSpecialChars.test(pas1)){
-                alert('Пароль не должен состоять из символов'); return false;
-            }
-            else if (containsLetters.test(pas1)){
-                alert('Пароль не должен состоять из кириллицы'); return false;
-            }
-            else if (pas1.length < 6 || pas1.length > 16){
-                alert('В пароле должно быть от 6 до 16 символов'); return false;
-            } else {
-                alert('ok password');
-
-            }
-        }
-
+    //Authorization
+    function sendData() {
         const XHR = new XMLHttpRequest();
         let data = JSON.stringify({
-           "login":  log.value,
-           "password": pas.value,
-       })
+            "login": log.value,
+            "password": pas.value,
+        })
         console.log(data)
 
         XHR.open('POST', 'http://localhost:8081/authorization', true);
         XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         XHR.send(data);
-
         XHR.addEventListener('load', function (event) {
-            alert(event.target.responseText);
+           console.log(event.target.responseText);
         });
-
         XHR.addEventListener('error', function (event) {
             alert("OOPS! SOMETHING WENT WRONG!");
         });
     }
-
-    subBtn.addEventListener('submit', function (event) {
-        event.preventDefault();
-        sendData();
-    });
-
-    //REGISTRATION
-    function sendDataUp () {
-        const XHR2 = new XMLHttpRequest();
-
-        let data2 = JSON.stringify({
-            "login":  log2.value,
-            "password": pas2.value,
-            "tel": tel.value,
-            // "password": pas2.value,
+    //Registration
+    function sendDataUp() {
+        let log = document.querySelector('#logUp')
+        let pas = document.querySelector('#pasUp')
+        let tel = document.querySelector('#tel')
+        let data = JSON.stringify({
+            "login": log.value,
+            "password": pas.value,
+            "mobileNumber": tel.value,
         })
-        console.log(data2)
-
-        XHR2.open('POST', 'http://localhost:8081/authorization', true);
-        XHR2.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-        XHR2.send(data2);
-
-        XHR2.addEventListener('load', function (event) {
-            alert(event.target.responseText);
+        console.log(data)
+        XHRUp.open('POST', 'http://localhost:8081/registration', true);
+        XHRUp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        XHRUp.send(data);
+        XHRUp.addEventListener('load', function (event) {
+            console.log(event.target.responseText);
         });
-
-        XHR2.addEventListener('error', function (event) {
+        XHRUp.addEventListener('error', function (event) {
             alert("OOPS! SOMETHING WENT WRONG!");
         });
+
+        //REQUEST RESTRATION
+        XHRUp.onreadystatechange = function() {
+            if (XHRUp.readyState !== 4) {
+                return
+            }
+            if (XHRUp.status === 200) {
+                signUpForm.style.display = 'none';
+                signInForm.style.display = 'block';
+                divIn.classList.toggle('stripe');
+                divUp.classList.toggle('stripe');
+                form.reset();
+                alert('you have successfully registered')
+            } else {
+                alert('This login already exists!')
+            }
+        }
     }
 
-
-    subBtn2.addEventListener('submit', function (event) {
+    //SENDING FORM
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
-        sendDataUp();
+        if (divIn.classList.contains('stripe') && validationSignIn()) {
+            sendData();
+        } else if (divUp.classList.contains('stripe') && validationSignUp()){
+            sendDataUp();
+        }
     });
 })
+
+//VALIDATION
+function validationSignIn() {
+    //login
+    let logIn = log.value;
+    if (/^[a-zA-Z1-9]+$/.test(logIn) === false) {
+        log.classList.toggle('redInp')
+        alert('Login must not contains special symbols, cirrilic letters');
+        return false;
+    } else if (logIn.length < 4 || logIn.length > 20) {
+        log.classList.toggle('redInp')
+        alert('Login must contains between 4 and 20 symbols');
+        return false;
+    } else if (parseInt(logIn.substr(0, 1))) {
+        log.classList.toggle('redInp')
+        alert('Login must start with a letter');
+        return false;
+    } else {
+        log.classList.remove('redInp')
+    }
+    //password
+    let pasIn = pas.value;
+    if(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasIn) === false){
+        alert('Password must contains more than 6 symbols: lowercase and uppercase latin letters, numbers')
+        pas.classList.toggle('redInp')
+    } else {
+        pas.classList.remove('redInp')
+        return true;
+    }
+}
+
+function validationSignUp() {
+    //login
+    let logUpVal = logUp.value;
+    if (/^[a-zA-Z1-9]+$/.test(logUpVal) === false) {
+        logUp.classList.toggle('redInp')
+        alert('Login must not contains special symbols, cirrilic letters');
+        return false;
+    } else if (logUpVal.length < 4 || logUpVal.length > 20) {
+        logUp.classList.toggle('redInp')
+        alert('Login must contains between 4 and 20 symbols');
+        return false;
+    } else if (parseInt(logUpVal.substr(0, 1))) {
+        logUp.classList.toggle('redInp')
+        alert('Login must start with a letter');
+        return false;
+    } else {
+        logUp.classList.remove('redInp')
+    }
+    //password
+    let pasUpVal = pasUp.value;
+    if(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasUpVal) === false){
+        alert('Password must contains more than 6 symbols: lowercase and uppercase latin letters, numbers')
+        pasUp.classList.toggle('redInp')
+        return false;
+    } else {
+        pasUp.classList.remove('redInp')
+    }
+    //reppassword
+    let repeat = repPas.value;
+    if(repeat != pasUpVal){
+        repPas.classList.toggle('redInp')
+        alert('password must matchs')
+        return false;
+    } else {
+        repPas.classList.remove('redInp')
+    }
+    //tel
+    let telVal = tel.value;
+    if(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(telVal) === false){
+        alert('Enter a phone number like this: +375(29)1112233')
+        tel.classList.toggle('redInp')
+        return false;
+    } else {
+        tel.classList.remove('redInp')
+        return true;
+    }
+}
+
+
 
 
