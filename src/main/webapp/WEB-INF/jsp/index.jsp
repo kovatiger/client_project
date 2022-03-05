@@ -51,27 +51,27 @@
             <div class="sign-up-form">
                 <div class="login">
                     <label>Login</label>
-                    <div><input type="text" placeholder="Enter your login" /></div>
+                    <div><input id="log2" type="text" placeholder="Enter your login" /></div>
                 </div>
 
                 <div class="phone">
                     <label>Phone number</label>
                     <div>
-                        <input type="tel" placeholder="Enter your phone number" />
+                        <input type="tel" id="phone" placeholder="Enter your phone number" />
                     </div>
                 </div>
 
                 <div class="password">
                     <label>Password</label>
                     <div>
-                        <input type="password" placeholder="Enter your password" />
+                        <input type="password" id="pas2" placeholder="Enter your password" />
                     </div>
                 </div>
 
                 <div class="password">
                     <label>Repeat password</label>
                     <div>
-                        <input type="email" placeholder="Enter your password" />
+                        <input type="email" id="repPas" placeholder="Enter your password" />
                     </div>
                 </div>
                 <div><button type="submit" id="submit-btn2" class="sign-btn btn">Sign up</button></div>

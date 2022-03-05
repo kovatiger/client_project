@@ -48,6 +48,7 @@ h1 {
 .stripe {
     width: 100%;
     border: 1px solid blue;
+    background-color: blue;
 }
 .form {
     font-size: 18px;
