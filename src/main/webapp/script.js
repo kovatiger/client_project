@@ -23,50 +23,60 @@ signIn.addEventListener('click',() =>{
     divUp.classList.toggle('stripe')
 })
 
-// window.addEventListener('load', function () {
-//     function sendData () {
-//         const XHR = new XMLHttpRequest();
-//
-//         const FD = new FormData ( form );
-//
-//         XHR.addEventListener('load', function (event) {
-//             alert(event.target.responseText);
-//         });
-//
-//         XHR.addEventListener('error', function (event) {
-//             alert("OOPS! SOMETHING WENT WRONG!");
-//         });
-//
-//         XHR.open('POST', 'http://localhost:8081/authorization');
-//
-//         XHR.send(FD);
-//     }
-//
-//     const form = document.querySelector('form')
-//     form.addEventListener('submit', function (event) {
-//         event.preventDefault();
-//         sendData();
-//     });
-// })
+window.addEventListener('load', function () {
+    function sendData () {
+        const XHR = new XMLHttpRequest();
 
-subBtn.addEventListener('submit', function() {
-    let XHR = new XMLHttpRequest();
-    let url = 'http://localhost:8081/authorization';
-    XHR.open('POST', url, true);
-    XHR.setRequestHeader("Content-Type", "application/json");
 
-    XHR.onreadystatechange = function () {
-        if( XHR.readyState == 4 && XHR.status === 200){
-            alert(XHR.responseText)
-        }
+        let log = document.querySelector('#log')
+        let pas = document.querySelector('#pas')
+        let data = JSON.stringify({
+           "login":  log.value,
+           "password": pas.value,
+       })
+        console.log(data)
+
+        XHR.open('POST', 'http://localhost:8081/authorization', true);
+        XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+
+        XHR.send(data);
+
+        XHR.addEventListener('load', function (event) {
+            alert(event.target.responseText);
+        });
+
+        XHR.addEventListener('error', function (event) {
+            alert("OOPS! SOMETHING WENT WRONG!");
+        });
     }
 
-    let log = document.querySelector('#log')
-    let pas = document.querySelector('#pas')
-    let data = JSON.stringify({
-        "login":  log.value,
-        "password": pas.value,
-    })
-    console.log(data)
-    XHR.send(data);
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        sendData();
+    });
 })
+
+
+// subBtn.addEventListener('submit', function() {
+//     console.log('fksnfk')
+//     let XHR = new XMLHttpRequest();
+//     let url = 'http://localhost:8081/authorization';
+//     XHR.open('POST', url, true);
+//     XHR.setRequestHeader("Content-Type", "application/json");
+//
+//     XHR.onreadystatechange = function () {
+//             if( XHR.readyState == 4 && XHR.status === 200){
+//             alert(XHR.responseText)
+//         }
+//     }
+//
+//     let log = document.querySelector('#log')
+//     let pas = document.querySelector('#pas')
+//     let data = JSON.stringify({
+//         "login":  log.value,
+//         "password": pas.value,
+//     })
+//     console.log(data)
+//     XHR.send(data);
+// })

@@ -42,8 +42,9 @@
                         <input id="pas" type="password" placeholder="Enter your password" />
                     </div>
                 </div>
-                <div><button class="sign-btn btn">Sign in</button></div>
+                <div><button type="submit" id="submit-btn" class="sign-btn btn">Sign in</button></div>
                 <div class="forgot"><a href="#">forgot Password?</a></div>
+
             </div>
 
             <!-- signup -->
@@ -73,8 +74,8 @@
                         <input type="email" placeholder="Enter your password" />
                     </div>
                 </div>
+                <div><button type="submit" id="submit-btn2" class="sign-btn btn">Sign up</button></div>
 
-                <div><button type="submit" id="submit-btn" class="sign-btn btn">Sign in</button></div>
             </div>
         </form>
     </div>
