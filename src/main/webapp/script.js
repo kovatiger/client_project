@@ -41,11 +41,24 @@ window.addEventListener('load', function () {
         XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         XHR.send(data);
         XHR.addEventListener('load', function (event) {
-           console.log(event.target.responseText);
+           // console.log(event.target.responseText);
         });
         XHR.addEventListener('error', function (event) {
             alert("OOPS! SOMETHING WENT WRONG!");
         });
+
+        //AUTHORIZATION REQUEST
+        XHR.onreadystatechange = function() {
+            if (XHR.readyState !== 4) {
+                return
+            }
+            if (XHR.status === 200) {
+                location.href="http://localhost:8080/mainMenu/" + 1;
+                console.log('good')
+            } else {
+                alert('Login or password is wrong!')
+            }
+        }
     }
     //Registration
     function sendDataUp() {
@@ -98,7 +111,7 @@ window.addEventListener('load', function () {
     });
 })
 
-//VALIDATION
+//VALIDATIONLogin
 function validationSignIn() {
     //login
     let logIn = log.value;
@@ -128,6 +141,7 @@ function validationSignIn() {
     }
 }
 
+//validationRegistration
 function validationSignUp() {
     //login
     let logUpVal = logUp.value;
