@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+
+body {
+    display: flex;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: rgb(245, 245, 245);
+}
+.bar {
+    background-color: rgb(19, 19, 19);
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 0 0;
+}
+.bar > div {
+    margin: 30px auto 20px;
+    cursor: pointer;
+}
+.bar-text {
+    color: antiquewhite;
+    font-size: 18px;
+}
+.icon {
+    margin: 12px auto 8px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+.main {
+    width: 100%;
+}
+#exit {
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(70, 70, 70);
+    width: 60px;
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    font-size: 22px;
+    color: white;
+}
+button:hover {
+    box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.19);
+}
+/* users */
+.travels-content {
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    display: none;
+}
+.users-content {
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+}
+.user-bar {
+    display: flex;
+    width: 90%;
+    padding: 10px 0 0 0;
+    font-size: 18px;
+    height: 50px;
+    justify-content: space-around;
+}
+.user-data {
+    margin: 0 0 0 50px;
+    width: 88%;
+}
+.person-block {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.person-block > div {
+    margin: 15px 40px 0 50px;
+}
+.person-block:first-child {
+    border-top: 2px solid rgb(116, 116, 116);
+}
+.person-block:nth-child(2n) {
+    background-color: rgb(236, 236, 236);
+}
+.block-btn {
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+}
+.green {
+    background-color: rgb(136, 201, 136);
+}
+.red {
+    background-color: rgb(221, 15, 43);
+    color: rgb(233, 233, 233);
+}
+/* travels */
+.travels-block {
+    width: 88%;
+    height: 60px;
+    margin: 0 0 0 40px;
+    justify-content: space-around;
+    display: flex;
+}
+.travels-block > div {
+    margin: 15px 40px 0 50px;
+}
+.travels-block:first-child {
+    border-top: 2px solid rgb(158, 158, 158);
+}
+.travels-block:nth-child(2n) {
+    background-color: rgb(236, 236, 236);
+}
+.personal-data-content {
+    background-color: rgb(245, 245, 245);
+    display: none;
+    width: 50%;
+    height: 280px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgb(34, 34, 34);
+    border-radius: 8px;
+    box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.19);
+    color: white;
+}
+.personal-data-content > div {
+    display: flex;
+    justify-content: space-between;
+}
+.margin {
+    margin: 25px 0 0 0;
+}
+.change-btn {
+    background-color: rgb(57, 160, 65);
+    border-radius: 5px;
+    width: 140px;
+    height: 35px;
+    margin: 20px 40% 0;
+}
+.change-btn:hover {
+    background-color: rgb(43, 126, 50);
+}
+input {
+    text-align: center;
+}

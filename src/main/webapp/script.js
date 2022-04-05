@@ -37,8 +37,8 @@ window.addEventListener('load', function () {
         })
         console.log(data)
 
-        XHR.open('POST', 'http://localhost:8081/authorization', true);
-        XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        XHR.open('POST', 'http://localhost:8081/authorization', true); //ЧАЩЕ УБИРАТЬ TRUE
+        XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8'); //Устанавливает значение http заголовка
         XHR.send(data);
         XHR.addEventListener('load', function (event) {
            // console.log(event.target.responseText);
@@ -46,12 +46,13 @@ window.addEventListener('load', function () {
         XHR.addEventListener('error', function (event) {
             alert("OOPS! SOMETHING WENT WRONG!");
         });
+        //PUT, DELETE ЗАПРОСЫ
 
         //AUTHORIZATION REQUEST
         XHR.onreadystatechange = function() {
             if (XHR.readyState !== 4) {
                 return
-            }
+            } 
             if (XHR.status === 200) {
                 location.href="http://localhost:8080/mainMenu/" + 1;
                 console.log('good')
