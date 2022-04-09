@@ -1,15 +1,17 @@
 package main.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-public class UserMenuController {
+@CrossOrigin("/")
+public class AdminMenuController {
 
-    @GetMapping("/mainMenu/{userId}")
+    @GetMapping("/adminMenu/{userId}")
     public String showUserMenuForLoginUser(@PathVariable String userId) {
-        return "userMainMenu";
+        return "adminMenu";
     }
 
 }

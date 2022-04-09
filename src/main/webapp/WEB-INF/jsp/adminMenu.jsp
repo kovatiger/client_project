@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%@ page contentType="text/html;charset=utf-8" %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="../../CSS/style_admin_menu.css"/>
     <link rel="stylesheet" type="text/css" href="../../CSS/nullStyle.css"/>
-    <title>KovaMenuAdmin</title>
+    <title>KovaBook</title>
 </head>
 <body>
+<script src="../../look.js"></script>
 <!-- bar -->
 <div class="bar">
     <div class="users">
@@ -37,8 +38,6 @@
             <div id="tel-bar">Телефон</div>
             <div id="status-user-bar">Статус</div>
         </div>
-    </div>
-        <!-- userdata -->
         <div class="user-data">
             <div class="person-block">
                 <div class="user-id">1</div>
@@ -60,6 +59,7 @@
             </div>
         </div>
     </div>
+        <!-- userdata -->
     <!-- TRAVELS -->
     <div class="travels-content">
         <div class="users-content">
@@ -112,6 +112,7 @@
         </div>
         <button class="change-btn">Изменить</button>
     </div>
-    <script src="./scriptAdmin.js"></script>
+</div>
+<script src="../../scriptAdmin.js"></script>
 </body>
 </html>

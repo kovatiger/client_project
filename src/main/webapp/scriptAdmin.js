@@ -19,6 +19,7 @@ let inputNewFIO = document.querySelector('.new-FIO')
 let inputNewTel = document.querySelector('.new-tel')
 let inputNewPas = document.querySelector('.new-pas')
 
+
 //Вкладки
 usersBtn.addEventListener('click',() =>{
     usersContent.style.display = 'block';
@@ -71,38 +72,38 @@ changePersonalData.addEventListener('click', () => {
     }
 })
 
-btnPersonalExit.addEventListener('click',() =>{
-    const XHRAdmin = new XMLHttpRequest();
-    let dataAdmin = JSON.stringify({
-        "login": personalLogin.innerText,
-        "FIO": personalFIO.innerText,
-        "tel": personalTel.innerText,
-        "password": personalPas.innerText,
-        // "userStatus": [personalStatus],
-    })
-    console.log(dataAdmin)
-
-    XHRAdmin.open('POST', 'http://localhost:8081/Admin', true); //заменить
-    XHRAdmin.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-    XHRAdmin.send(dataAdmin);
+// btnPersonalExit.addEventListener('click',() =>{
+//     const XHRAdmin = new XMLHttpRequest();
+//     let dataAdmin = JSON.stringify({
+//         "login": personalLogin.innerText,
+//         "FIO": personalFIO.innerText,
+//         "tel": personalTel.innerText,
+//         "password": personalPas.innerText,
+//         // "userStatus": [personalStatus],
+//     })
+//     console.log(dataAdmin)
+//
+//     XHRAdmin.open('POST', 'http://localhost:8081/Admin', true); //заменить
+//     XHRAdmin.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+//     XHRAdmin.send(dataAdmin);
 // XHR.addEventListener('load', function (event) {
 //    // console.log(event.target.responseText);
 // });
-    XHRAdmin.addEventListener('error', function (event) {
-        alert("OOPS! SOMETHING WENT WRONG!");
-    });
+//     XHRAdmin.addEventListener('error', function (event) {
+//         alert("OOPS! SOMETHING WENT WRONG!");
+//     });
 //PUT, DELETE ЗАПРОСЫ
 
 //REQUEST
-    XHRAdmin.onreadystatechange = function() {
-        if (XHRAdmin.readyState !== 4) {
-            return
-        }
-        if (XHRAdmin.status === 200) {
-            location.href="http://localhost:8080/mainMenu/" + 1;
-            console.log('good')
-        } else {
-            alert('Какая-то статуса!')
-        }
-    }
-})
+//     XHRAdmin.onreadystatechange = function() {
+//         if (XHRAdmin.readyState !== 4) {
+//             return
+//         }
+//         if (XHRAdmin.status === 200) {
+//             location.href="http://localhost:8080/adminMenu/" + 1;
+//             console.log('good')
+//         } else {
+//             alert('Какая-то статуса!')
+//         }
+//     }
+// })

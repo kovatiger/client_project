@@ -1,4 +1,4 @@
-let signUp = document.querySelector('.sign-up')
+﻿let signUp = document.querySelector('.sign-up')
 let signUpForm = document.querySelector('.sign-up-form')
 let signInForm = document.querySelector('.sign-in-form')
 let signIn = document.querySelector('.sign-in')
@@ -37,31 +37,43 @@ window.addEventListener('load', function () {
         })
         console.log(data)
 
-        XHR.open('POST', 'http://localhost:8081/authorization', true); //ЧАЩЕ УБИРАТЬ TRUE
-        XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8'); //Устанавливает значение http заголовка
+        XHR.open('POST', 'http://localhost:8081/authorization', true);
+        XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         XHR.send(data);
         XHR.addEventListener('load', function (event) {
-           // console.log(event.target.responseText);
         });
         XHR.addEventListener('error', function (event) {
             alert("OOPS! SOMETHING WENT WRONG!");
         });
-        //PUT, DELETE ЗАПРОСЫ
 
         //AUTHORIZATION REQUEST
-        XHR.onreadystatechange = function() {
+        XHR.onreadystatechange = function () {
             if (XHR.readyState !== 4) {
                 return
-            } 
+            }
             if (XHR.status === 200) {
-                location.href="http://localhost:8080/mainMenu/" + 1;
-                console.log('good')
+                let responseText = JSON.parse(XHR.responseText)
+                console.log(responseText)
+                if (responseText[2] == "ACTIVE") {
+                    switch (responseText[1]) {
+                        case "ADMIN":
+                            location.href = "http://localhost:8080/adminMenu/" + responseText[0];
+                            break;
+                        case "USER":
+                            alert('userpage')
+                            //location.href = "http://localhost:8080/userMenu/" + 1; //СДЕЛАТЬ
+                            break;
+                    }
+                } else {
+                    alert('ERROR PAGE СДЕЛАТь')
+                }
             } else {
                 alert('Login or password is wrong!')
             }
         }
     }
-    //Registration
+
+//Registration
     function sendDataUp() {
         let log = document.querySelector('#logUp')
         let pas = document.querySelector('#pasUp')
@@ -71,7 +83,6 @@ window.addEventListener('load', function () {
             "password": pas.value,
             "mobileNumber": tel.value,
         })
-        console.log(data)
         XHRUp.open('POST', 'http://localhost:8081/registration', true);
         XHRUp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         XHRUp.send(data);
@@ -83,7 +94,7 @@ window.addEventListener('load', function () {
         });
 
         //REQUEST RESTRATION
-        XHRUp.onreadystatechange = function() {
+        XHRUp.onreadystatechange = function () {
             if (XHRUp.readyState !== 4) {
                 return
             }
@@ -100,13 +111,13 @@ window.addEventListener('load', function () {
         }
     }
 
-    //SENDING FORM
+//SENDING FORM
     const form = document.querySelector('form')
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         if (divIn.classList.contains('stripe') && validationSignIn()) {
             sendData();
-        } else if (divUp.classList.contains('stripe') && validationSignUp()){
+        } else if (divUp.classList.contains('stripe') && validationSignUp()) {
             sendDataUp();
         }
     });
@@ -133,7 +144,7 @@ function validationSignIn() {
     }
     //password
     let pasIn = pas.value;
-    if(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasIn) === false){
+    if (/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasIn) === false) {
         alert('Password must contains more than 6 symbols: lowercase and uppercase latin letters, numbers')
         pas.classList.toggle('redInp')
     } else {
@@ -163,7 +174,7 @@ function validationSignUp() {
     }
     //password
     let pasUpVal = pasUp.value;
-    if(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasUpVal) === false){
+    if (/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasUpVal) === false) {
         alert('Password must contains more than 6 symbols: lowercase and uppercase latin letters, numbers')
         pasUp.classList.toggle('redInp')
         return false;
@@ -172,7 +183,7 @@ function validationSignUp() {
     }
     //reppassword
     let repeat = repPas.value;
-    if(repeat != pasUpVal){
+    if (repeat != pasUpVal) {
         repPas.classList.toggle('redInp')
         alert('password must matchs')
         return false;
@@ -181,7 +192,7 @@ function validationSignUp() {
     }
     //tel
     let telVal = tel.value;
-    if(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(telVal) === false){
+    if (/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(telVal) === false) {
         alert('Enter a phone number like this: +375(29)1112233')
         tel.classList.toggle('redInp')
         return false;
