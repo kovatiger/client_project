@@ -1,41 +1,24 @@
 let usersBtn = document.querySelector(".users")
-let usersContent = document.querySelector('.users-content')
+// let usersContent = document.querySelector('.users-content')
 let travelsBtn = document.querySelector('.travels')
-let travelsContent = document.querySelector('.travels-content')
+// let travelsContent = document.querySelector('.travels-content')
 let personalBtn = document.querySelector('.personal-data')
-let personalDataContent = document.querySelector('.personal-data-content')
+// let personalDataContent = document.querySelector('.personal-data-content')
 let userData = document.querySelector('.user-data')
-let changePersonalData = document.querySelector('.change-btn')
-let btnPersonalExit = document.querySelector('#exit')
-let personalStatus =new Map();
-
-let personalLogin = document.querySelector('.my-login')
-let personalFIO = document.querySelector('.my-FIO')
-let personalTel = document.querySelector('.my-tel')
-let personalPas = document.querySelector('.my-pass')
-
-let inputNewLogin = document.querySelector('.new-login')
-let inputNewFIO = document.querySelector('.new-FIO')
-let inputNewTel = document.querySelector('.new-tel')
-let inputNewPas = document.querySelector('.new-pas')
-
+let btnExit = document.querySelector('#exit')
 
 //Вкладки
 usersBtn.addEventListener('click',() =>{
-    usersContent.style.display = 'block';
-    travelsContent.style.display = 'none';
-    personalDataContent.style.display = 'none';
+    location.href="http://localhost:8080/adminMenu/" + sessionStorage.getItem("login");
 })
 travelsBtn.addEventListener('click',() =>{
-    usersContent.style.display = 'none';
-    travelsContent.style.display = 'block';
-    personalDataContent.style.display = 'none';
+    console.log(document.location.pathname)
+    location.href="http://localhost:8080/adminTravels/" + sessionStorage.getItem("login");
 })
 personalBtn.addEventListener('click',() =>{
-    usersContent.style.display = 'none';
-    travelsContent.style.display = 'none';
-    personalDataContent.style.display = 'block';
+    location.href="http://localhost:8080/adminPersonalData/" + sessionStorage.getItem("login");
 })
+
 //Блокировка юзера
 userData.addEventListener('click', (e) => {
     let status;
@@ -52,25 +35,15 @@ userData.addEventListener('click', (e) => {
     }
     personalStatus.set(e.target.closest(".person-block").querySelector('.user-login').innerText, status );
 })
-//Изменение личных данных
-changePersonalData.addEventListener('click', () => {
-    if(inputNewLogin.value.length > 0){
-        personalLogin.innerText = inputNewLogin.value;
-        inputNewLogin.value ='';
-    }else if(inputNewFIO.value !=''){
-        personalFIO.innerText = inputNewFIO.value;
-        inputNewFIO.value ='';
-    }else if(inputNewTel.value !=''){
-        personalTel.innerText = inputNewTel.value;
-        inputNewTel.value ='';
-    }else if(inputNewPas.value !=''){
-        personalPas.innerText = inputNewPas.value;
-        inputNewPas.value ='';
-    }
-    else{
-        alert('Введите изменённые данные в поле для ввода!')
-    }
+
+//выход
+btnExit.addEventListener('click', () => {
+    location.href="http://localhost:8080/"
+    sessionStorage.clear()
 })
+
+
+
 
 // btnPersonalExit.addEventListener('click',() =>{
 //     const XHRAdmin = new XMLHttpRequest();

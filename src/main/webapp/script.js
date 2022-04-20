@@ -12,6 +12,8 @@ let pasUp = document.querySelector('#pasUp')
 let tel = document.querySelector('#tel')
 let repPas = document.querySelector('#repPas')
 
+localStorage.setItem('login', 'login1')
+
 signUp.addEventListener('click', () => {
     signUpForm.style.display = 'block';
     signInForm.style.display = 'none';
@@ -53,7 +55,7 @@ window.addEventListener('load', function () {
             }
             if (XHR.status === 200) {
                 let responseText = JSON.parse(XHR.responseText)
-                console.log(responseText)
+                sessionStorage.setItem("login", responseText[0])
                 if (responseText[2] == "ACTIVE") {
                     switch (responseText[1]) {
                         case "ADMIN":

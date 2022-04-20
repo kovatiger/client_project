@@ -29,37 +29,38 @@
     <nav>
         <button id="exit">→</button>
     </nav>
-    <!-- USER -->
+<div class="travels-content">
     <div class="users-content">
         <div class="user-bar">
-            <div id="id-bar">ID</div>
-            <div id="login-bar">Логин</div>
-            <div id="FIO-bar">ФИО</div>
-            <div id="tel-bar">Телефон</div>
-            <div id="status-user-bar">Статус</div>
+            <div id="id-travels-bar">ID</div>
+            <div id="from-bar">Откуда</div>
+            <div id="to-bar">Куда</div>
+            <div id="date">Дата</div>
+            <div id="time-bar">Время</div>
+            <div id="status-bar">Статус</div>
         </div>
-        <div class="user-data">
-            <div class="person-block">
-                <div class="user-id">1</div>
-                <div class="user-login">первый</div>
-                <div class="user-FIO">Иванов Иван Иваныч</div>
-                <div class="user-tel">+375297707337</div>
-                <div class="user-status">
-                    <button class="red block-btn">Заблокировать</button>
-                </div>
+        <!-- travels-data -->
+        <div class="travels-data">
+            <div class="travels-block">
+                <div class="travels-id">1</div>
+                <div class="travels-from">Минск</div>
+                <div class="travels-to">Гродно</div>
+                <div class="travels-date">27/08/2022</div>
+                <div class="travels-time">14-00</div>
+                <div class="user-status">Завершена</div>
             </div>
-            <div class="person-block">
-                <div class="user-id">1</div>
-                <div class="user-login">второй</div>
-                <div class="user-FIO">Иванов Иван Иваныч</div>
-                <div class="user-tel">+375297707337</div>
-                <div class="user-status">
-                    <button class="red block-btn">Заблокировать</button>
-                </div>
+            <div class="travels-block">
+                <div class="travels-id">1</div>
+                <div class="travels-from">Минск</div>
+                <div class="travels-to">Гродно</div>
+                <div class="travels-date">27/08/2022</div>
+                <div class="travels-time">14-00</div>
+                <div class="user-status">Завершена</div>
             </div>
         </div>
     </div>
 </div>
-<script src="../../scriptAdmin.js"></script>
+</div>
+<script src="../../adminTravels.js"></script>
 </body>
 </html>

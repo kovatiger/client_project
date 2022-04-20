@@ -49,7 +49,6 @@ button:hover {
 .travels-content {
     background-color: rgb(245, 245, 245);
     height: 100%;
-    display: none;
 }
 .users-content {
     background-color: rgb(245, 245, 245);
@@ -112,7 +111,6 @@ button:hover {
 }
 .personal-data-content {
     background-color: rgb(245, 245, 245);
-    display: none;
     width: 50%;
     height: 280px;
     margin: 100px auto;
