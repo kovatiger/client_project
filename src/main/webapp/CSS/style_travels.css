@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+body {
+    font-family: 'Readex Pro', sans-serif;
+    /*background-image: url(./pics/city.jpg);*/
+    background-attachment: fixed;
+    background-color: black;
+    background-size: 1800px 900px;
+    opacity: 0.98;
+    backdrop-filter: brightness(40%) blur(5px);
+    color: white;
+}
+/* HEADER */
+.header {
+    display: flex;
+    margin: 0 auto 25px;
+    width: 85%;
+    justify-content: space-between;
+}
+.header > div {
+    margin: 25px 0 0 0;
+}
+.logo {
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+}
+.logo-text {
+    margin: 0 10px 0 0;
+}
+#logo-icon {
+    margin: 10px 0 0 0;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.icon-size {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 0 0;
+}
+.nav-div {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.1s;
+    transition-delay: 0.005ms;
+}
+.nav-div:hover {
+    color: rgb(167, 104, 67);
+}
+.travel-text {
+    margin: 0 0 0 6px;
+}
+main{
+    margin: 100px auto 0;
+    width: 80%;
+    height: 300px;
+}
+.result-block{
+    margin: 0 auto 25px;
+    height: 120px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    font-size: 18px;
+    justify-content: space-around;
+}
+.result-tickets{
+    color:black;
+}
+.res{
+    margin: 40px;
+}
+.res-town{
+    font-weight: 800;
+    margin: 40px 0 0 20px;
+}
+.status{
+    margin: 40px 20px 0 0;
+}
+.red{
+    color: rgb(0, 4, 255);
+}
+.green{
+    color: rgb(57, 170, 57);
+}
