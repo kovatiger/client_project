@@ -30,22 +30,21 @@
         <button id="exit">→</button>
     </nav>
 <div class="personal-data-content">
-    <div class="personal-login">Логин:
-        <div class="my-login">dekdelklk</div>
+    <div class="old personal-login">Логин:
+        <div class="my-login"><span></span></div>
         <input type="text" placeholder="Измените логин" class="new-login">
     </div>
-    <div class="personal-FIO margin">ФИО:
-        <div class="my-FIO">Кузьмин Кузьма Кузьмович</div>
-        <input type="text" placeholder="Измените ФИО" class="new-FIO">
-    </div>
-    <div class="personal-tel margin">Телефон:
-        <div class="my-tel">+3752933846427</div>
+    <div class="small">Может содержать не менее 4 и не более 20 букв латиницы, цифры.</div>
+    <div class="old personal-tel margin">Телефон:
+        <div class="my-tel"><span></span></div>
         <input type="tel" placeholder="Измените телефон" class="new-tel">
     </div>
-    <div class="personal-tel margin">Пароль:
-        <div class="my-pass">elwkdwlk283D</div>
+    <div class="small">Пример: +375291234567</div>
+    <div class="old personal-tel margin">Пароль:
+        <div class="my-pass"><span></span></div>
         <input type="password" placeholder="Измените пароль" class="new-pas">
     </div>
+    <div class="small">Должен содержать не менее 6 символов: латинские буквы(прописную, заглавную) и цифру.</div>
     <button class="change-btn">Изменить</button>
 </div>
 </div>

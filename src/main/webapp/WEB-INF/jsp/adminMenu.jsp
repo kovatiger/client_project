@@ -32,32 +32,12 @@
     <!-- USER -->
     <div class="users-content">
         <div class="user-bar">
-            <div id="id-bar">ID</div>
+            <div id="id-bar">№</div>
             <div id="login-bar">Логин</div>
-            <div id="FIO-bar">ФИО</div>
             <div id="tel-bar">Телефон</div>
             <div id="status-user-bar">Статус</div>
         </div>
-        <div class="user-data">
-            <div class="person-block">
-                <div class="user-id">1</div>
-                <div class="user-login">первый</div>
-                <div class="user-FIO">Иванов Иван Иваныч</div>
-                <div class="user-tel">+375297707337</div>
-                <div class="user-status">
-                    <button class="red block-btn">Заблокировать</button>
-                </div>
-            </div>
-            <div class="person-block">
-                <div class="user-id">1</div>
-                <div class="user-login">второй</div>
-                <div class="user-FIO">Иванов Иван Иваныч</div>
-                <div class="user-tel">+375297707337</div>
-                <div class="user-status">
-                    <button class="red block-btn">Заблокировать</button>
-                </div>
-            </div>
-        </div>
+        <div class="user-data"></div>
     </div>
 </div>
 <script src="../../scriptAdmin.js"></script>

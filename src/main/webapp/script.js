@@ -37,7 +37,6 @@ window.addEventListener('load', function () {
             "login": log.value,
             "password": pas.value,
         })
-        console.log(data)
 
         XHR.open('POST', 'http://localhost:8081/authorization', true);
         XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
@@ -55,19 +54,18 @@ window.addEventListener('load', function () {
             }
             if (XHR.status === 200) {
                 let responseText = JSON.parse(XHR.responseText)
-                sessionStorage.setItem("login", responseText[0])
-                if (responseText[2] == "ACTIVE") {
-                    switch (responseText[1]) {
+                sessionStorage.setItem("login", responseText.login)
+                if (responseText.status == "ACTIVE") {
+                    switch (responseText.role) {
                         case "ADMIN":
-                            location.href = "http://localhost:8080/adminMenu/" + responseText[0];
+                            location.href = "http://localhost:8080/adminMenu/" + responseText.login;
                             break;
                         case "USER":
-                            alert('userpage')
-                            //location.href = "http://localhost:8080/userMenu/" + 1; //СДЕЛАТЬ
+                            location.href = "http://localhost:8080/userMenu/" + responseText.login; //СДЕЛАТЬ
                             break;
                     }
                 } else {
-                    alert('ERROR PAGE СДЕЛАТь')
+                    alert('ERROR PAGE СДЕЛАТЬ')//!!!!!!!!!!!!!!!
                 }
             } else {
                 alert('Login or password is wrong!')
@@ -117,7 +115,7 @@ window.addEventListener('load', function () {
     const form = document.querySelector('form')
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        if (divIn.classList.contains('stripe') && validationSignIn()) {
+        if (divIn.classList.contains('stripe')) {
             sendData();
         } else if (divUp.classList.contains('stripe') && validationSignUp()) {
             sendDataUp();
@@ -126,34 +124,34 @@ window.addEventListener('load', function () {
 })
 
 //VALIDATIONLogin
-function validationSignIn() {
-    //login
-    let logIn = log.value;
-    if (/^[a-zA-Z1-9]+$/.test(logIn) === false) {
-        log.classList.toggle('redInp')
-        alert('Login must not contains special symbols, cirrilic letters');
-        return false;
-    } else if (logIn.length < 4 || logIn.length > 20) {
-        log.classList.toggle('redInp')
-        alert('Login must contains between 4 and 20 symbols');
-        return false;
-    } else if (parseInt(logIn.substr(0, 1))) {
-        log.classList.toggle('redInp')
-        alert('Login must start with a letter');
-        return false;
-    } else {
-        log.classList.remove('redInp')
-    }
-    //password
-    let pasIn = pas.value;
-    if (/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasIn) === false) {
-        alert('Password must contains more than 6 symbols: lowercase and uppercase latin letters, numbers')
-        pas.classList.toggle('redInp')
-    } else {
-        pas.classList.remove('redInp')
-        return true;
-    }
-}
+// function validationSignIn() {
+//     //login
+//     let logIn = log.value;
+//     if (/^[a-zA-Z1-9]+$/.test(logIn) === false) {
+//         log.classList.toggle('redInp')
+//         alert('Login must not contains special symbols, cirrilic letters');
+//         return false;
+//     } else if (logIn.length < 4 || logIn.length > 20) {
+//         log.classList.toggle('redInp')
+//         alert('Login must contains between 4 and 20 symbols');
+//         return false;
+//     } else if (parseInt(logIn.substr(0, 1))) {
+//         log.classList.toggle('redInp')
+//         alert('Login must start with a letter');
+//         return false;
+//     } else {
+//         log.classList.remove('redInp')
+//     }
+//     //password
+//     let pasIn = pas.value;
+//     if (/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasIn) === false) {
+//         alert('Password must contains more than 6 symbols: lowercase and uppercase latin letters, numbers')
+//         pas.classList.toggle('redInp')
+//     } else {
+//         pas.classList.remove('redInp')
+//         return true;
+//     }
+// }
 
 //validationRegistration
 function validationSignUp() {

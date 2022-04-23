@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <%@ page contentType="text/html;charset=utf-8" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../../CSS/nullStyle.css"/>
     <link rel="stylesheet" type="text/css" href="../../CSS/style_main_menu.css"/>
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="../login_autoriz/CSS/nullstyle.css"
-    />
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="../login_autoriz/CSS/nullstyle.css"
-    />
     <title>MainMenu</title>
 </head>
 <body>
@@ -27,7 +17,7 @@
             <img
                     id="logo-icon"
                     class="icon-size"
-                    src="./pics/logo.png"
+                    src="../../pics/logo.png"
                     alt="logo"
             />
         </div>
@@ -38,7 +28,7 @@
                 <img
                         id="travel-icon"
                         class="icon-size"
-                        src="./pics/tickets.png"
+                        src="../../pics/tickets.png"
                         alt="tickets"
                 />
             </div>
@@ -49,7 +39,7 @@
                 <img
                         id="travel-icon1"
                         class="icon-size"
-                        src="./pics/user.png"
+                        src="../../pics/user.png"
                         alt="user"
                 />
             </div>
@@ -60,7 +50,7 @@
                 <img
                         id="travel-icon2"
                         class="icon-size"
-                        src="./pics/exit.png"
+                        src="../../pics/exit.png"
                         alt="user"
                 />
             </div>
@@ -119,7 +109,7 @@
                     <div>
                         <img
                                 class="icon-size"
-                                src="./pics/black_user.png"
+                                src="../../pics/black_user.png"
                                 alt="reverse"
                         /></div>
                 </div>
@@ -138,28 +128,28 @@
                 <div class="popular-cities"><span class="first">Жодино</span> - <span class="second">Логойск</span></div>
                 <div class="price">10 Br</div>
             </div>
-            <img class="icon-city" src="./pics/build1.png">
+            <img class="icon-city" src="../../pics/build1.png">
         </div>
         <div class="container">
             <div>
                 <div class="popular-cities"><span class="first">Минск</span> - <span class="second">Бобруйск</span></div>
                 <div class="price">15 Br</div>
             </div>
-            <img class="icon-city" src="./pics/build2.png">
+            <img class="icon-city" src="../../pics/build2.png">
         </div>
         <div class="container">
             <div>
                 <div class="popular-cities"><span class="first">Брест</span> - <span class="second">Могилёв</span></div>
                 <div class="price">12 Br</div>
             </div>
-            <img class="icon-city" src="./pics/build3.png">
+            <img class="icon-city" src="../../pics/build3.png">
         </div>
         <div class="container">
             <div>
                 <div class="popular-cities"><span class="first">Минск</span> - <span class="second">Гродно</span></div>
                 <div class="price">12 Br</div>
             </div>
-            <img class="icon-city" src="./pics/build4.png">
+            <img class="icon-city" src="../../pics/build4.png">
         </div>
         <div class="container">
             <div>
@@ -167,17 +157,18 @@
 
                 <div class="price">22 Br</div>
             </div>
-            <img class="icon-city" src="./pics/build5.png">
+            <img class="icon-city" src="../../pics/build5.png">
         </div>
         <div class="container">
             <div>
                 <div class="popular-cities"><span class="first">Брест</span> - <span class="second">Минск</span></div>
                 <div class="price">19 Br</div>
             </div>
-            <img class="icon-city" src="./pics/build6.png">
+            <img class="icon-city" src="../../pics/build6.png">
         </div>
     </div>
 </main>
+<div class="bottom"></div>
 <script src="../../scriptMainMenu.js"></script>
 </body>
 </html>
