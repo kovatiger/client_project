@@ -72,36 +72,23 @@
 <main>
     <form>
         <div class="window">
-            <div><div>Имя: <span class="name">Анна</span></div> <input class="new-name" maxlength="20" type="text"  placeholder="Введите новое имя" /></div>
             <div><div>
-                Фамилия: <span class="last-name">Арикулусс</span></div> <input class="new-last-name" maxlength="20" type="text"  placeholder="Введите новую фамилию" />
+                Логин: <span class="login"></span></div><input class="new-login" maxlength="20" type="text"  placeholder="Введите новый логин" />
             </div>
             <div><div>
-                Отчество: <span class="patronymic">Витальевна</span></div> <input class="new-patronymic" maxlength="20" type="text"  placeholder="Введите новое отчество" />
+                Пароль: <span class="password"></span></div><input class="new-password" maxlength="20"  placeholder="Введите новый пароль" />
             </div>
             <div><div>
-                Логин: <span class="login">ldedwkedwo12</span></div><input class="new-login" maxlength="20" type="text"  placeholder="Введите новый логин" />
-            </div>
-            <div><div>
-                Пароль: <span class="password">ewkdlLS2221</span></div><input class="new-password" maxlength="20"  placeholder="Введите новый пароль" />
-            </div>
-            <div><div>
-                Номер телефона: <span class="tel">+375296665544</span></div><input
+                Номер телефона: <span class="tel"></span></div><input
                     class="new-tel"
                     type="tel"
                     placeholder="Введите новый номер телефона"
             />
             </div>
-            <div><div>
-                E-mail: <span class="email">kas32wedeyed@mail.ru</span></div><input
-                    class="new-email"
-                    type="email"
-                    placeholder="Введите новый e-mail" />
-            </div>
             <div class="grey">
                 *Вы можете изменить свои личные данные
             </div>
-            <div><button class="order-btn">Изменить</button></div>
+            <div><button class="change-btn">Изменить</button></div>
         </div>
     </form>
     </div>
