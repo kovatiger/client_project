@@ -2,9 +2,13 @@ let cityFrom = document.querySelector('.city-from')
 let cityTo = document.querySelector('.city-to')
 
 let btnSearch = document.querySelector('.search-btn')
+let btnSignIn = document.querySelector('.signIn')
+let btnTravels = document.querySelector('.travels')
+let btnPersonalInfo = document.querySelector('.room')
 
 let popularCityContainer = document.querySelector('.containers')
-let cityContainer = document.querySelector('.container')
+// let cityContainer = document.querySelector('.container')
+let user = sessionStorage.getItem('login')
 
 //ограничение выбираемой даты
 let today = new Date();
@@ -28,7 +32,31 @@ popularCityContainer.addEventListener('click', (e) => {
     }
 })
 
+//ATHORIZATION
+btnSignIn.addEventListener('click',() => {
+    location.href = "http://localhost:8080/authorization"
+})
+
+//TRAVELS
+btnTravels.addEventListener('click', ()=>{
+    console.log('dewdw')
+    if(sessionStorage.getItem("login") == null){
+        location.href = "http://localhost:8080/authorization";
+    } else {
+        location.href = `http://localhost:8080/userPanel/travels/${user}`;
+    }
+})
+
+//Личный кабинет
+btnPersonalInfo.addEventListener('click', ()=>{
+    if(sessionStorage.getItem("login") == null){
+        location.href = "http://localhost:8080/authorization";
+    } else {
+        location.href = `http://localhost:8080/userPanel/personalInformation/${user}`;
+    }
+})
+
 //Найти рейс
 btnSearch.addEventListener('click', ()=>{
-
+    location.href = "http://localhost:8080/findTickets";
 })

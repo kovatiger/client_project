@@ -1,96 +1,174 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="../../CSS/style_login.css"/>
+    <%@ page contentType="text/html;charset=utf-8" %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../../CSS/nullStyle.css"/>
-    <title>KovaBook</title>
+    <link rel="stylesheet" type="text/css" href="../../CSS/style_main_menu.css"/>
+    <title>MainMenu</title>
 </head>
 <body>
-<div class="window">
-    <div class="greeting">
-        <h1>KovaBook</h1>
-        <img class="bus-icon" src="./pics/bus.png"/>
-        <div class="preview-text">
-            <h2>Добро пожаловать!</h2>
-            <p>Бронируйте билеты из одного города в другой.</p>
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <div class="logo-text">KovaBook</div>
+        <div>
+            <img
+                    id="logo-icon"
+                    class="icon-size"
+                    src="../../pics/logo.png"
+                    alt="logo"
+            />
         </div>
     </div>
-    <div class="user">
-        <div class="switch">
-            <button class="sign-in btn">
-                Войти
-                <div class="div-in stripe"></div>
-            </button>
-            <button class="sign-up btn">
-                Зарегистрироваться
-                <div class="div-up"></div>
-            </button>
+    <div class="nav">
+        <div class="nav-div travels">
+            <div>
+                <img
+                        id="travel-icon"
+                        class="icon-size"
+                        src="../../pics/tickets.png"
+                        alt="tickets"
+                />
+            </div>
+            <div class="travel-text">Поездки</div>
         </div>
-        <!-- form -->
-        <form class="form" method="post">
-            <div class="sign-in-form">
-                <div class="login">
-                    <label>Логин</label>
-                    <div><input id="log" type="text" placeholder="Введите логин"/></div>
-                    <div class="small-p">Может содержать не менее 4 и не более 20 букв латиницы, цифры.</div>
-                </div>
-                <div class="password">
-                    <label>Пароль</label>
-                    <div>
-                        <input id="pas" type="password" placeholder="Введите пароль"/>
-                        <div class="small-p">Должен содержать не менее 6 символов: латинские буквы(прописную, заглавную)
-                            и цифру.
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" id="submit-btn" class="sign-btn btn">Войти</button>
-                </div>
+        <div class="nav-div room">
+            <div>
+                <img
+                        id="travel-icon1"
+                        class="icon-size"
+                        src="../../pics/user.png"
+                        alt="user"
+                />
             </div>
-
-            <!-- signup -->
-            <div class="sign-up-form">
-                <div class="login">
-                    <label>Логин</label>
-                    <div><input id="logUp" type="text" placeholder="Введите логин"/></div>
-                    <div class="small-p">Может содержать не менее 4 и не более 20 букв латиницы, цифры.</div>
-                </div>
-
-                <div class="phone">
-                    <label>Телефон</label>
-                    <div>
-                        <input type="tel" id="tel" placeholder="Введите мобильный телефон"/>
-                    </div>
-                    <div class="small-p">Пример: +375291234567
-                    </div>
-                </div>
-
-                <div class="password">
-                    <label>Пароль</label>
-                    <div>
-                        <input type="password" id="pasUp" placeholder="Введите пароль"/>
-                    </div>
-                    <div class="small-p">Должен содержать не менее 6 символов: латинские буквы(прописную, заглавную)
-                        и цифру.
-                    </div>
-                </div>
-
-                <div class="password">
-                    <label>Повторите пароль</label>
-                    <div>
-                        <input type="password" id="repPas" placeholder="Введите пароль"/>
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" id="submit-btn2" class="sign-btn btn">Зарегистрироваться</button>
-                </div>
-
+            <div class="travel-text">Личный кабинет</div>
+        </div>
+        <div class="nav-div signIn">
+            <div>
+                <img
+                        id="travel-icon2"
+                        class="icon-size"
+                        src="../../pics/exit.png"
+                        alt="user"
+                />
             </div>
-        </form>
+            <div class="travel-text">Войти</div>
+        </div>
     </div>
-</div>
-<script src="../../script.js"></script>
+</header>
+<!-- SEARCH -->
+<form class="search">
+    <div class="big-text">
+        Заказ билетов на междугородние рейсы по всей Беларуси
+    </div>
+    <div class="search-field">
+        <div class="search-block">
+            <div class="where block">
+                <div class="grey-text">Откуда</div>
+                <div class="flex-div">
+                    <select class="city-from">
+                        <option  class="where-city">Бобруйск</option>
+                        <option  class="where-city">Брест</option>
+                        <option  class="where-city">Витебск</option>
+                        <option  class="where-city">Жодино</option>
+                        <option  class="where-city">Логойск</option>
+                        <option  class="where-city" selected>Минск</option>
+                        <option  class="where-city">Могилёв</option>
+                    </select>
+                    <div>
+                    </div>
+                </div>
+            </div>
+            <div class="stripe"></div>
+            <div class="where-end block">
+                <div class="grey-text">Куда</div>
+                <select class="city-to">
+                    <option  class="where-city">Бобруйск</option>
+                    <option  class="where-city">Брест</option>
+                    <option  class="where-city">Гродно</option>
+                    <option  class="where-city">Жодино</option>
+                    <option  class="where-city">Логойск</option>
+                    <option  class="where-city">Минск</option>
+                    <option  class="where-city" selected>Могилёв</option>
+                </select>
+            </div>
+            <div class="stripe"></div>
+            <div class="date block">
+                <div class="grey-text">Дата</div>
+                <input id="date-input" required type="date" />
+            </div>
+            <div class="stripe"></div>
+            <div class="amount block">
+                <div >
+                    <div class="grey-text">Количество пассажиров</div><div class="count-block">
+                    <div>
+                        <input id="input-count" value="1" type="number" min="1" max="15" />
+                    </div>
+                    <div>
+                        <img
+                                class="icon-size"
+                                src="../../pics/black_user.png"
+                                alt="reverse"
+                        /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><button class="search-btn">Найти билет</button></div>
+    </div>
+</form>
+<!-- Популярные направления -->
+<main class="popular">
+    <div class="main-text">Популярные направления</div>
+    <div class="containers">
+        <div class="container">
+            <div>
+                <div class="popular-cities"><span class="first">Жодино</span> - <span class="second">Логойск</span></div>
+                <div class="price">10 Br</div>
+            </div>
+            <img class="icon-city" src="../../pics/build1.png">
+        </div>
+        <div class="container">
+            <div>
+                <div class="popular-cities"><span class="first">Минск</span> - <span class="second">Бобруйск</span></div>
+                <div class="price">15 Br</div>
+            </div>
+            <img class="icon-city" src="../../pics/build2.png">
+        </div>
+        <div class="container">
+            <div>
+                <div class="popular-cities"><span class="first">Брест</span> - <span class="second">Могилёв</span></div>
+                <div class="price">12 Br</div>
+            </div>
+            <img class="icon-city" src="../../pics/build3.png">
+        </div>
+        <div class="container">
+            <div>
+                <div class="popular-cities"><span class="first">Минск</span> - <span class="second">Гродно</span></div>
+                <div class="price">12 Br</div>
+            </div>
+            <img class="icon-city" src="../../pics/build4.png">
+        </div>
+        <div class="container">
+            <div>
+                <div class="popular-cities"><span class="first">Витебск</span> - <span class="second">Минск</span></div>
+
+                <div class="price">22 Br</div>
+            </div>
+            <img class="icon-city" src="../../pics/build5.png">
+        </div>
+        <div class="container">
+            <div>
+                <div class="popular-cities"><span class="first">Брест</span> - <span class="second">Минск</span></div>
+                <div class="price">19 Br</div>
+            </div>
+            <img class="icon-city" src="../../pics/build6.png">
+        </div>
+    </div>
+</main>
+<div class="bottom"></div>
+<script src="../../scriptMainMenu.js"></script>
 </body>
 </html>

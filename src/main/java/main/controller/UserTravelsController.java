@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 @CrossOrigin
-public class UserMainMenuController {
-    @GetMapping("/userMenu/{userId}")
-    public String showUserMenu(@PathVariable String userId) {
-        return "index";
+public class UserTravelsController {
+    @GetMapping("/userPanel/travels/{userId}")
+    public String showUserTravelsMenu(@PathVariable String userId) {
+        return "travels";
     }
 }
