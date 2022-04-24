@@ -40,24 +40,7 @@
             <div id="status-bar">Статус</div>
         </div>
         <!-- travels-data -->
-        <div class="travels-data">
-            <div class="travels-block">
-                <div class="travels-id">1</div>
-                <div class="travels-from">Минск</div>
-                <div class="travels-to">Гродно</div>
-                <div class="travels-date">27/08/2022</div>
-                <div class="travels-time">14-00</div>
-                <div class="user-status">Завершена</div>
-            </div>
-            <div class="travels-block">
-                <div class="travels-id">1</div>
-                <div class="travels-from">Минск</div>
-                <div class="travels-to">Гродно</div>
-                <div class="travels-date">27/08/2022</div>
-                <div class="travels-time">14-00</div>
-                <div class="user-status">Завершена</div>
-            </div>
-        </div>
+        <div class="travels-data"></div>
     </div>
 </div>
 </div>

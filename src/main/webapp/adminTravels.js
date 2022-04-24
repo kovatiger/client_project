@@ -2,7 +2,7 @@ let usersBtn = document.querySelector(".users")
 let travelsBtn = document.querySelector('.travels')
 let personalBtn = document.querySelector('.personal-data')
 let btnExit = document.querySelector('#exit')
-let travelsData = document.querySelector('travels-data')
+let travelsData = document.querySelector('.travels-data')
 
 //вкладки
 usersBtn.addEventListener('click',() =>{
@@ -26,32 +26,34 @@ XHRAdminPageTrav.onreadystatechange = function () {
         return
     }
     if (XHRAdminPageTrav.status === 200) {
-        let travellsArr = JSON.parse(XHRAdminPage.responseText);
-        for (let i = 0; i < travellsArr.length; i++){
-            let travDiv = document.createElement('div');
-            travDiv.classList.add('travels-block');
+        let server = JSON.parse(XHRAdminPageTrav.responseText);
+        console.log(server)
+        for (let i = 0; i < server.length; i++){
+            let container = document.createElement('div');
+            container.classList.add('travels-block');
             let now = new Date();
-            let date=new Date(1*travellsArr[i].date.substr(6),1*travellsArr[i].date.substr(3,2)-1,1*travellsArr[i].date.substr(0,2),0,0,0,0);
+            let date=new Date(1*server[i].date.substr(6),1*server[i].date.substr(3,2)-1,1*server[i].date.substr(0,2),0,0,0,0);
             if(now > date){
-                travDiv.innerHTML=`
-                <div class="travels-id">${travellsArr[i]+1}</div>
-                <div class="travels-from">${travellsArr[i].fromCity}</div>
-                <div class="travels-to">${travellsArr[i].toCity}</div>
-                <div class="travels-date">${travellsArr[i].date}</div>
-                <div class="travels-time">${travellsArr[i].time}</div>
-                <div class="user-status">Не завершена</div>
-                `
-            } else {
-                travDiv.innerHTML=`
-                <div class="travels-id">${travellsArr[i]+1}</div>
-                <div class="travels-from">${travellsArr[i].fromCity}</div>
-                <div class="travels-to">${travellsArr[i].toCity}</div>
-                <div class="travels-date">${travellsArr[i].date}</div>
-                <div class="travels-time">${travellsArr[i].time}</div>
+                container.innerHTML=`
+                <div class="travels-id">${i+1}</div>
+                <div class="travels-from">${server[i].fromCity}</div>
+                <div class="travels-to">${server[i].toCity}</div>
+                <div class="travels-date">${server[i].date}</div>
+                <div class="travels-time">${server[i].time}</div>
                 <div class="user-status">Завершена</div>
                 `
+            } else {
+                container.innerHTML=`
+                <div class="travels-id">${i+1}</div>
+                <div class="travels-from">${server[i].fromCity}</div>
+                <div class="travels-to">${server[i].toCity}</div>
+                <div class="travels-date">${server[i].date}</div>
+                <div class="travels-time">${server[i].time}</div>
+                <div class="user-status">Не завершена</div>
+                `
             }
-            travelsData.append(travDiv)
+            console.log(travelsData)
+            travelsData.append(container)
             }
         }
 }
