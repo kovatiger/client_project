@@ -58,7 +58,7 @@ btnChange.addEventListener('click', (e) => {
         "password": pas,
     })
     console.log(data)
-    XHR.open('POST', 'http://localhost:8081/adminPanel/updateAdminInfo');
+    XHR.open('POST', 'http://localhost:8081/userPanel/updateUserInfo');
     XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
     XHR.send(data);
     XHR.onreadystatechange = function () {
