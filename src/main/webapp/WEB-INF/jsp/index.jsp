@@ -54,7 +54,7 @@
                         alt="user"
                 />
             </div>
-            <div class="travel-text">Войти</div>
+            <div class="travel-text goExit"></div>
         </div>
     </div>
 </header>
@@ -69,13 +69,6 @@
                 <div class="grey-text">Откуда</div>
                 <div class="flex-div">
                     <select class="city-from">
-                        <option  class="where-city">Бобруйск</option>
-                        <option  class="where-city">Брест</option>
-                        <option  class="where-city">Витебск</option>
-                        <option  class="where-city">Жодино</option>
-                        <option  class="where-city">Логойск</option>
-                        <option  class="where-city" selected>Минск</option>
-                        <option  class="where-city">Могилёв</option>
                     </select>
                     <div>
                     </div>
@@ -85,19 +78,12 @@
             <div class="where-end block">
                 <div class="grey-text">Куда</div>
                 <select class="city-to">
-                    <option  class="where-city">Бобруйск</option>
-                    <option  class="where-city">Брест</option>
-                    <option  class="where-city">Гродно</option>
-                    <option  class="where-city">Жодино</option>
-                    <option  class="where-city">Логойск</option>
-                    <option  class="where-city">Минск</option>
-                    <option  class="where-city" selected>Могилёв</option>
                 </select>
             </div>
             <div class="stripe"></div>
             <div class="date block">
                 <div class="grey-text">Дата</div>
-                <input id="date-input" required type="date" />
+                <input id="date-input" type="date" />
             </div>
             <div class="stripe"></div>
             <div class="amount block">
@@ -125,44 +111,44 @@
     <div class="containers">
         <div class="container">
             <div>
-                <div class="popular-cities"><span class="first">Жодино</span> - <span class="second">Логойск</span></div>
-                <div class="price">10 Br</div>
+                <div class="popular-cities"><span class="first"></span> - <span class="second"></span></div>
+                <div class="price"><span class="small-price"></span> Br</div>
             </div>
             <img class="icon-city" src="../../pics/build1.png">
         </div>
         <div class="container">
             <div>
-                <div class="popular-cities"><span class="first">Минск</span> - <span class="second">Бобруйск</span></div>
-                <div class="price">15 Br</div>
+                <div class="popular-cities"><span class="first"></span> - <span class="second"></span></div>
+                <div class="price"><span class="small-price"></span> Br</div>
             </div>
             <img class="icon-city" src="../../pics/build2.png">
         </div>
         <div class="container">
             <div>
-                <div class="popular-cities"><span class="first">Брест</span> - <span class="second">Могилёв</span></div>
-                <div class="price">12 Br</div>
+                <div class="popular-cities"><span class="first"></span> - <span class="second"></span></div>
+                <div class="price"><span class="small-price"></span> Br</div>
             </div>
             <img class="icon-city" src="../../pics/build3.png">
         </div>
         <div class="container">
             <div>
-                <div class="popular-cities"><span class="first">Минск</span> - <span class="second">Гродно</span></div>
-                <div class="price">12 Br</div>
+                <div class="popular-cities"><span class="first"></span> - <span class="second"></span></div>
+                <div class="price"><span class="small-price"></span> Br</div>
             </div>
             <img class="icon-city" src="../../pics/build4.png">
         </div>
         <div class="container">
             <div>
-                <div class="popular-cities"><span class="first">Витебск</span> - <span class="second">Минск</span></div>
+                <div class="popular-cities"><span class="first"></span> - <span class="second"></span></div>
 
-                <div class="price">22 Br</div>
+                <div class="price"><span class="small-price"></span> Br</div>
             </div>
             <img class="icon-city" src="../../pics/build5.png">
         </div>
         <div class="container">
             <div>
-                <div class="popular-cities"><span class="first">Брест</span> - <span class="second">Минск</span></div>
-                <div class="price">19 Br</div>
+                <div class="popular-cities"><span class="first"></span> - <span class="second"></span></div>
+                <div class="price"><span class="small-price"></span> Br</div>
             </div>
             <img class="icon-city" src="../../pics/build6.png">
         </div>
