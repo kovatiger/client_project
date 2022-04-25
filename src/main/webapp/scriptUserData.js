@@ -21,8 +21,8 @@ XHRUserData.onreadystatechange = function () {
     if (XHRUserData.status === 200) {
         let response = JSON.parse(XHRUserData.responseText)
         login.innerText = response.login;
-        password.innerText = response.mobileNumber;
-        tel.innerText = response.password;
+        password.innerText = response.password;
+        tel.innerText = response.mobileNumber;
     }
 }
 
@@ -30,7 +30,7 @@ XHRUserData.onreadystatechange = function () {
 btnChange.addEventListener('click', (e) => {
     e.preventDefault()
     let log;
-    let tel;
+    let tell;
     let pas;
     if (inputLogin.value != '') {
         validationLogin();
@@ -40,9 +40,9 @@ btnChange.addEventListener('click', (e) => {
     }
     if (inputTel.value != '') {
         validationTel();
-        tel = inputTel.value;
+        tell = inputTel.value;
     } else {
-        tel = tel.innerText;
+        tell = tel.innerText;
     }
     if (inputPas.value != '') {
         validationPassword();
@@ -54,10 +54,9 @@ btnChange.addEventListener('click', (e) => {
     let data = JSON.stringify({
         "oldLogin": sessionStorage.getItem('login'),
         "login": log,
-        "mobileNumber": tel,
+        "mobileNumber": tell,
         "password": pas,
     })
-    console.log(data)
     XHR.open('POST', 'http://localhost:8081/userPanel/updateUserInfo');
     XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
     XHR.send(data);
@@ -69,8 +68,11 @@ btnChange.addEventListener('click', (e) => {
             sessionStorage.clear()
             sessionStorage.setItem("login", log)
             login.innerText = log;
-            password.innerText = tel;
-            tel.innerText = pas;
+            password.innerText = pas;
+            tel.innerText = tell;
+            inputLogin.value = '';
+            inputPas.value = '';
+            inputTel.value = '';
         }
     }
 })

@@ -45,7 +45,7 @@
             </div>
             <div class="travel-text">Поездки</div>
         </div>
-        <div class="nav-div">
+        <div class="nav-div personalInfo">
             <div>
                 <img
                         id="travel-icon1"
@@ -65,7 +65,7 @@
                         alt="user"
                 />
             </div>
-            <div class="travel-text">Выйти</div>
+            <div class="travel-text goExit"></div>
         </div>
     </div>
 </header>
@@ -76,7 +76,7 @@
                 <div class="where block">
                     <div class="grey-text">Откуда</div>
                     <div class="flex-div">
-                        <div class="output from">Бешенковичи</div>
+                        <div class="output from"></div>
                         <div>
                         </div>
                     </div>
@@ -84,20 +84,20 @@
                 <div class="stripe"></div>
                 <div class="where-end block">
                     <div class="grey-text">Куда</div>
-                    <div class="output where">Минск</div>
+                    <div class="output where to"></div>
                 </div>
                 <div class="stripe"></div>
 
                 <div class="date block">
                     <div class="grey-text">Дата</div>
-                    <div class="output date black-text">22/03/2022</div>
+                    <div class="output date black-text date-time"></div>
                 </div>
                 <div class="stripe"></div>
                 <div class="amount block">
                     <div >
                         <div class="grey-text">Количество пассажиров</div><div class="count-block">
                         <div>
-                            <div class="output count">2</div>
+                            <div class="output count"></div>
                         </div>
                         <div>
                             <img
@@ -111,26 +111,7 @@
         </div>
     </div>
     </div>
-    <div class="result-tickets">
-        <div class="result-block">
-            <div class="res-town">Бешенковичи</div>
-            <img class="icon-size res-town" src="./pics/way.png">
-            <div class="res-town">Минск</div>
-            <div class="res">22.03.2022</div>
-            <div class="res">14:00 - 16:00</div>
-            <div class="res">Цена: 22 BYN</div>
-            <div><button class="serve-btn">Забронировать</button></div>
-        </div>
-        <div class="result-block">
-            <div class="res-town">Бешенковичи</div>
-            <img class="icon-size res-town" src="./pics/way.png">
-            <div class="res-town">Минск</div>
-            <div class="res">22.03.2022</div>
-            <div class="res">14:00 - 16:30</div>
-            <div class="res">Цена: 20 BYN</div>
-            <div><button class="serve-btn">Забронировать</button></div>
-        </div>
-    </div>
+    <div class="result-tickets"></div>
 </main>
 <script src="../../scriptFindTickets.js"></script>
 </body>

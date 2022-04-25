@@ -4,6 +4,7 @@ let goExit = document.querySelector('.goExit')
 let popularCityContainer = document.querySelector('.containers')
 let user = sessionStorage.getItem('login')
 let inputDate = document.querySelector('#date-input')
+let inputPlace = document.querySelector('#input-count')
 let selectCityFrom = document.querySelector('.city-from')
 let selectCityTo = document.querySelector('.city-to')
 let allcontainers = document.querySelectorAll('.container')
@@ -94,7 +95,6 @@ btnSignIn.addEventListener('click', () => {
         sessionStorage.clear();
         location.href = "http://localhost:8080/"
     }
-
 })
 
 //TRAVELS
@@ -119,7 +119,27 @@ btnPersonalInfo.addEventListener('click', () => {
 btnSearch.addEventListener('click', (e) => {
     e.preventDefault()
     if (inputDate.value != '') {
-        location.href = "http://localhost:8080/findTickets";
+        const XHRFindTickets = new XMLHttpRequest();
+        let dateArr =  inputDate.value.split('-');
+        let date = `${dateArr[2]}/${dateArr[1]}/${dateArr[0]}`
+        let dataTicket = JSON.stringify({
+            "way": `${selectCityFrom.value}-${selectCityTo.value}`,
+            "date": `${date}`,
+            "place": `${inputPlace.value}`,
+        })
+        sessionStorage.setItem('amount', inputPlace.value);
+        XHRFindTickets.open('POST', 'http://localhost:8081/userPanel/findTicket');
+        XHRFindTickets.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        XHRFindTickets.send(dataTicket);
+        XHRFindTickets.onreadystatechange = function () {
+            if (XHRFindTickets.readyState !== 4) {
+                return
+            }
+            if (XHRFindTickets.status === 200) {
+                sessionStorage.setItem('tickets', JSON.stringify(XHRFindTickets.responseText));
+                location.href = "http://localhost:8080/findTickets";
+            }
+        }
     } else {
         alert('Введите дату!')
     }

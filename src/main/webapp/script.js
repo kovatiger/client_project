@@ -123,36 +123,6 @@ window.addEventListener('load', function () {
     });
 })
 
-//VALIDATIONLogin
-// function validationSignIn() {
-//     //login
-//     let logIn = log.value;
-//     if (/^[a-zA-Z1-9]+$/.test(logIn) === false) {
-//         log.classList.toggle('redInp')
-//         alert('Login must not contains special symbols, cirrilic letters');
-//         return false;
-//     } else if (logIn.length < 4 || logIn.length > 20) {
-//         log.classList.toggle('redInp')
-//         alert('Login must contains between 4 and 20 symbols');
-//         return false;
-//     } else if (parseInt(logIn.substr(0, 1))) {
-//         log.classList.toggle('redInp')
-//         alert('Login must start with a letter');
-//         return false;
-//     } else {
-//         log.classList.remove('redInp')
-//     }
-//     //password
-//     let pasIn = pas.value;
-//     if (/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(pasIn) === false) {
-//         alert('Password must contains more than 6 symbols: lowercase and uppercase latin letters, numbers')
-//         pas.classList.toggle('redInp')
-//     } else {
-//         pas.classList.remove('redInp')
-//         return true;
-//     }
-// }
-
 //validationRegistration
 function validationSignUp() {
     //login
