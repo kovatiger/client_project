@@ -4,9 +4,9 @@ const XHR = new XMLHttpRequest();
 let data = JSON.stringify({
     "login": sessionStorage.getItem('login'),
 })
-XHR.open('POST', 'http://localhost:8081//userPanel/trips');
+XHR.open('POST', 'http://localhost:8081/userPanel/trips');
 XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-XHR.send(dataAdmin);
+XHR.send(data);
 XHR.onreadystatechange = function () {
     if (XHR.readyState !== 4) {
         return
