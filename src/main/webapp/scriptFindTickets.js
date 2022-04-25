@@ -98,10 +98,10 @@ resultTickets.addEventListener('click', (e) => {
          XHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
          XHR.send(data);
          XHR.onreadystatechange = function () {
-             if (XHRAdminData.readyState !== 4) {
+             if (XHR.readyState !== 4) {
                  return
              }
-             if (XHRAdminData.status === 200) {
+             if (XHR.status === 200) {
                  alert('Вы успешно забронировали рейс! Все билеты можно посмотреть во вкладке "Поездки"');
                  location.href = "http://localhost:8080";
              }
