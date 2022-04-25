@@ -70,26 +70,7 @@
     </div>
 </header>
 <main>
-    <div class="result-tickets">
-        <div class="result-block">
-            <div class="res-town">Бешенковичи</div>
-            <img class="icon-size res-town" src="./pics/way.png" />
-            <div class="res-town">Минск</div>
-            <div class="res">22.03.2022</div>
-            <div class="res">14:00 - 16:00</div>
-            <div class="res">Цена: 22 BYN</div>
-            <div class="status green">Завершена</div>
-        </div>
-        <div class="result-block">
-            <div class="res-town">Могилёв</div>
-            <img class="icon-size res-town" src="./pics/way.png" />
-            <div class="res-town">Жодино</div>
-            <div class="res">22.03.2022</div>
-            <div class="res">14:00 - 16:30</div>
-            <div class="res">Цена: 20 BYN</div>
-            <div class="status red">Не завершена</div>
-        </div>
-    </div>
+    <div class="result-tickets"></div>
 </main>
 <script src="../../scriptTravels.js"></script>
 </body>
